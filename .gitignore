@@ -1,0 +1,7 @@
+.Rdata
+.Rhistory
+secret
+.secret
+secret.key
+secret.pem
+data/*
