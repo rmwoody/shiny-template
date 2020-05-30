@@ -5,3 +5,5 @@ secret
 secret.key
 secret.pem
 data/*
+Rproj.user
+.Rproj.user
