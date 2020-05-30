@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1590805045848.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "F13ACD24",
+    "lastKnownWriteTime" : 1590805194,
+    "last_content_update" : 1590805194204,
+    "path" : "~/Documents/GitHub/shiny-template/global.R",
+    "project_path" : "global.R",
+    "properties" : {
+        "cursorPosition" : "23,11",
+        "scrollLine" : "13"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

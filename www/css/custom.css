@@ -1,0 +1,150 @@
+
+.h1{
+  font-size: 50px;
+}
+
+.h2{
+  font-size: 1.8rem;
+}
+
+.h3{
+  font-size:1.5rem;
+}
+
+.card-title{
+  font-size:1.5rem;
+}
+
+.card-header{
+  font-size:1.3rem;
+}
+
+.card-subtitle{
+  font-size:14px;
+}
+
+.card{
+  font-size:15px;
+  min-width: 250px;
+  flex-grow:1;
+  margin-bottom:12px;
+}
+
+.btn-secondary {
+    background: #0f283e;
+    color: white;
+}
+
+.border-secondary{
+  border-width:1px;
+}
+
+.p{
+  font-size:16px;
+}
+
+h1{
+font-size:38px;
+}
+
+h2{
+font-size:28px;
+}
+
+h3{
+font-size:24px;
+}
+
+h4{
+font-size:20px;
+}
+
+h5{
+font-size:18px;
+}
+
+h6{
+font-size:15px;
+}
+
+p{font-size:15px;
+margin-bottom:24px;
+  
+}
+
+.body{
+  line-height:1.5;
+}
+
+th {
+  font-size:14px;
+  
+}
+/*
+.navbar{
+  height:60px;
+}
+.nav-item {
+  font-size:1.5rem;
+  padding-left:1.5rem;
+}
+.navbar-nav > li {
+  font-size: 1.3rem;
+  }
+.dropdown-menu {
+    font-size: 1.3rem;
+  }
+  
+.navbar-brand {
+  font-size: 28px;
+}
+
+body {
+    padding-top: 60px;
+    background-color:#ebebeb;
+}
+
+html {
+  font-size: 14px;
+}
+*/
+
+.navbar{
+  height:60px;
+  margin-bottom:10px;
+  border-radius: 0px;
+}
+.nav-item {
+  font-size:1.2rem;
+  padding-left:1.2rem;
+}
+.navbar-nav > li {
+  font-size: 1.2rem;
+  }
+.dropdown-menu {
+    font-size: 1.2rem;
+  }
+  
+.navbar-brand {
+    display: inline-block;
+    text-align:center;
+    margin-right: 1rem;
+    font-size: 1.4rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+
+ .navbar-header{
+  float: none; 
+  text-align:center;
+}
+
+
+.jumbotron {
+    background-image: url('https://images.pexels.com/photos/1250260/pexels-photo-1250260.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+    background-size: cover;
+    height: 100%;
+    border-radius: 0 !important;
+  }
+  

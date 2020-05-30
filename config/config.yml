@@ -1,0 +1,13 @@
+# This file stores the config values for the app
+# Includes things like username, server paths ect.
+# Nothing SECRET/Private should be in clear text in this file
+# Also includes the app version, which is important for database logging
+
+default:
+  app_name : "ShinyMeNot"
+  app_version: "1.0.0"
+  sql_lite_con: "data/app_db.sqlite"
+  admin_role: "admin123"
+  free_role: "free"
+  role_1: "role1"
+  
