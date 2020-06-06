@@ -5,23 +5,11 @@ an global database connections, this would be the place to include
 them. This is also where logic to include a specific config setting
 should be included."
 #################################################################
-library(shiny)
-library(shinydashboardPlus)
-library(shinyWidgets)
-library(waiter)
-library(config)
-library(shinyjs)
-library(import)
-library(dbConnect)
-library(DBI)
-library(R6)
-library(stringr)
-library(echarts4r)
-library(glue)
-library(tidyr)
-library(dplyr)
-library(waiter)
-library(DT)
+source("general/setup.R")   
+install_list <- new.packages(packages)
+install.new.packages(install_list)
+libraries(packages)
+
 source("R6/bivariatePlot.R")
 source("R6/password.R")
 source("R6/config.R")

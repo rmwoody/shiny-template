@@ -1,7 +1,7 @@
 
 customNav <- function(...){
   items <- list(...)
-  html <- div(class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary",
+  html <- div(class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark",
               div(class = "container", style = 'align-items: center;',
                   # tags$link(rel="icon", href="img/favicon_io/favicon-32x32.png"), 
                   tags$div(class = "navbar-brand",

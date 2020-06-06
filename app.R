@@ -8,8 +8,8 @@ ui <- fluidPage(
   tags$head(
     # Custom CSS and JavaScript
     tags$script(src = "js/custom.js"),  
-    tags$link(rel = "stylesheet", type = "text/css", href = "css/lux.css"),
-    tags$link(rel = "stylesheet", type = "text/css", href = "css/custom.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "css/yeti.css"),
+    tags$link(rel = "stylesheet", type = "text/css", href = "css/customyeti.css"),
     tags$link(rel="stylesheet",type = "text/css",
               href="highlight/styles/atom-one-dark.css"),
     tags$script(src="highlight/highlight.pack.js"),
@@ -25,7 +25,7 @@ ui <- fluidPage(
               "analytics",
               "admin",
               "profile"
-              ),
+    ),
     shinyjs::useShinyjs(debug = FALSE),
     # This determines what page is being used
     hidden(selectInput("pageID", label = "",choices = c(), selected = "")),
@@ -34,7 +34,9 @@ ui <- fluidPage(
     # Main Output That Is Then Switched Between
     # Maybe something to change the style of this for some modules
     div(id = "mainOutput", class = "shiny-html-output",
-        style = 'margin-top:60px;background-color:#ccc;')
+        style = 'margin-top:60px;background-color:#ccc;'
+        #theme = shinytheme("cerulean")
+    )
   ),
   # Loading Page
   waiter_show_on_load(html = spin_fading_circles())
@@ -72,7 +74,7 @@ server <- function(input, output,session) {
       navDropdown(id = "navDropdown2",label = "Reports",
                   moduleDropdownLink("Case Studies","reports_caseStudies"),
                   moduleDropdownLink("Dashboard","reports_echarts")
-                  )
+      )
     })  
     rt_caseStudies <- callModule(reports_caseStudies,id = "reports_caseStudies")
     rt_echarts <- callModule(reports_echarts,id = "reports_echarts")
