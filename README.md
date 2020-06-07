@@ -1,4 +1,4 @@
-# shiny-template
+# shiny-template ![](https://travis-ci.com/rmwoody/shiny-template.svg?branch=master)
 Template for modular shiny
 
 Template for continuous integration with modular shiny apps.
