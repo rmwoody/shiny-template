@@ -49,11 +49,13 @@ navDropdown <- function(id = NULL, label = "",...){
   )
 }
 
-moduleNav <- function(id = NULL,label = "", moduleName){
+moduleNav <- function(id = NULL,label = NULL, moduleName=NULL,...){
+  items <- list(...)
   tags$li(class="nav-item",
           tags$a(class="nav-link",
                  href = glue("javascript:setPage('{moduleName}');") %>% as.character(),
-                 label)
+                 label,
+                 items)
   )
 }
 
