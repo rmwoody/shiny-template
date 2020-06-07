@@ -1,37 +1,24 @@
 # Should Include All packages needed for the app
-library(dplyr)
-packages <- c(
-  "shiny",
-  "shinydashboardPlus",
-  "shinyWidgets",
-  "waiter",
-  "config",
-  "shinyjs",
-  "import",
-  "dbConnect",
-  "DBI",
-  "R6",
-  "stringr",
-  "echarts4r",
-  "glue",
-  "tidyr",
-  "dplyr",
-  "DT",
-  "shinythemes"
-)
+all.packages <- function(file){
+  text <- readLines(file)
+  keep <- unlist(lapply(text,function(x) grepl(pattern = "^library\\(.+\\)",x)))
+  packages <- gsub( "\\)","",gsub("(^library)\\(","",text[keep]))
+  return(packages)
+}
+
 
 new.packages <- function(packages){
   v <- lapply(packages, function(x){
-    !x %in% (installed.packages() %>% row.names())
+    !x %in% (row.names(installed.packages()))
   })
   return(packages[unlist(v)])
 }
 
 install.new.packages <- function(packages){
-  if(length(packages) ==0){
+  if(length(packages) < 1){
     return(NULL)
   }else{
-    install.packages()
+    install.packages(packages)
   }
 }
 

@@ -35,7 +35,7 @@ ui <- fluidPage(
     # Maybe something to change the style of this for some modules
     div(id = "mainOutput", class = "shiny-html-output",
         style = 'margin-top:60px;background-color:#ccc;'
-        #theme = shinytheme("cerulean")
+        
     )
   ),
   # Loading Page
@@ -62,7 +62,9 @@ server <- function(input, output,session) {
   AppUser$set_role(con) # Sets the role of the AppUserObject
   # Home Page
   output$home <- renderUI({
-    moduleNav(id = "navDropdown1",label = "Home",moduleName = "home")
+    #<span class="fa fa-home"></span>
+    moduleNav(id = "navDropdown1",label = NULL,moduleName = "home",
+               icon("home"))
   })
   rt_home <- callModule(home,id="home")
   # After home is loaded hide the waiter
@@ -80,8 +82,8 @@ server <- function(input, output,session) {
     rt_echarts <- callModule(reports_echarts,id = "reports_echarts")
   }
   
-  # Admin 
-  if (AppUser$view_role() == "admin"){
+  # Admin For Everyone for now
+  if (AppUser$view_role() %in% c("admin","free","user")) {
     output$admin <- renderUI({
       navDropdown(id = "navDropdownAdmin",label = "Admin",
                   moduleDropdownLink("Datatables","admin_dataPreview")
