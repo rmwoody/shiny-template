@@ -13,7 +13,9 @@ homeUI <- function(id){
     ),
     div(class ="container-fluid", style = 
     'padding:75px;width:90%;max-width:1400px;background-color:#fff;',
-        htmlOutput(ns("markdownContent"))
+    
+        htmlOutput(ns("markdownContent")),
+        #themeSelector()
         #uiOutput(ns('toRender'))
         # Option for an html file
         # tags$iframe(src = "./markdowns/home.md", # put myMarkdown.html to /www

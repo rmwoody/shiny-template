@@ -1,7 +1,7 @@
 
 customNav <- function(...){
   items <- list(...)
-  html <- div(class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary",
+  html <- div(class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark",
               div(class = "container", style = 'align-items: center;',
                   # tags$link(rel="icon", href="img/favicon_io/favicon-32x32.png"), 
                   tags$div(class = "navbar-brand",
@@ -49,11 +49,13 @@ navDropdown <- function(id = NULL, label = "",...){
   )
 }
 
-moduleNav <- function(id = NULL,label = "", moduleName){
+moduleNav <- function(id = NULL,label = NULL, moduleName=NULL,...){
+  items <- list(...)
   tags$li(class="nav-item",
           tags$a(class="nav-link",
                  href = glue("javascript:setPage('{moduleName}');") %>% as.character(),
-                 label)
+                 label,
+                 items)
   )
 }
 

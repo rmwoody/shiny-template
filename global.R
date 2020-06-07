@@ -5,9 +5,14 @@ an global database connections, this would be the place to include
 them. This is also where logic to include a specific config setting
 should be included."
 #################################################################
-library(shiny)
-library(shinydashboardPlus)
+source("general/setup.R")
+packages <- all.packages("global.R") # Something for the version
+# When pushing to shinyapps.io, it seems you need library in the code
+library(dplyr)
 library(shinyWidgets)
+library(shinydashboard)
+library(shinydashboardPlus)
+library(rmarkdown)
 library(waiter)
 library(config)
 library(shinyjs)
@@ -20,8 +25,12 @@ library(echarts4r)
 library(glue)
 library(tidyr)
 library(dplyr)
-library(waiter)
+library(glue)
 library(DT)
+
+install_list <- new.packages(packages)
+if (Sys.getenv("R_CONFIG_ACTIVE")=="local"){install.new.packages(install_list)} # Skip For Deployment
+
 source("R6/bivariatePlot.R")
 source("R6/password.R")
 source("R6/config.R")
@@ -29,8 +38,8 @@ source("R6/user.R")
 source("ui_elements/components.R")
 source("ui_elements/card.R")
 source("R6/database_prep.R")
-
 #import::here(User, .from = "R6-Components.R")
+
 
 #########################################################################
 "Connections should generally be made for each user/session. For one,
