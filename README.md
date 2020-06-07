@@ -1,4 +1,4 @@
-# shiny-template
+# shiny-template ![](https://travis-ci.org/rmwoody/shiny-template.svg?branch=master)
 Template for modular shiny
 
 ## Next Additions
