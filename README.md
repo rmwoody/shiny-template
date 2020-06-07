@@ -1,6 +1,8 @@
 # shiny-template
 Template for modular shiny
 
+Template for continuous integration with modular shiny apps.
+
 ## Next Additions
 
 - *User Logo*: User logo on the right of the navbar.
