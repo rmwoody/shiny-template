@@ -2,6 +2,9 @@ admin_dataPreviewUI <- function(id){
   ns = NS(id)
   tagList(br(),
           div(class ="container-fluid", style = 'padding:35px;align-content:center;',
+              dashboardCard(id = ns("value1"),
+                            sparklineOutput(ns("value1spark"))),
+              excelOutput(ns("exltable"),width = "100%"),
               column(8, dashboardCard(id = NULL,
                                       h5("Tables"),
                                          DT::dataTableOutput(ns("tables"))
@@ -37,5 +40,7 @@ admin_dataPreview <- function(input, output, session){
     users = dbGetQuery(con,"SELECT * FROM USER_ROLES")
     DT::datatable(users)
   })
+  
+  output$exltable <-renderExcel(excelTable(data = head(iris)))
   
 }

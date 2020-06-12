@@ -108,7 +108,7 @@ server <- function(input, output,session) {
     if (page() != '') {
       ui <- do.call(paste0(page(),"UI"), list(page()))
     } else {
-      runjs("setPage('home');")
+      runjs("setPage('admin_dataPreview');")
       #do.call(paste0("home","UI"), list("home"))
     }
   })

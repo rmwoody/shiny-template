@@ -6,7 +6,11 @@ them. This is also where logic to include a specific config setting
 should be included."
 #################################################################
 source("general/setup.R")
-packages <- all.packages("global.R") # Something for the version
+packages <- all.packages("global.R")
+install_list <- new.packages(packages)
+
+if (Sys.getenv("R_CONFIG_ACTIVE") %in% c("","local")){install.new.packages(install_list)} # Skip For Deployment
+# Something for the version
 # When pushing to shinyapps.io, it seems you need library in the code
 library(dplyr)
 library(shinyWidgets)
@@ -27,9 +31,8 @@ library(tidyr)
 library(dplyr)
 library(glue)
 library(DT)
-
-install_list <- new.packages(packages)
-if (Sys.getenv("R_CONFIG_ACTIVE")=="local"){install.new.packages(install_list)} # Skip For Deployment
+library(sparkline)
+library(excelR)
 
 source("R6/bivariatePlot.R")
 source("R6/password.R")
