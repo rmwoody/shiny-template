@@ -41,6 +41,12 @@ Source: CRAN
 Version: 1.1-2
 Hash: c0d56cd15034f395874c870141870c25
 
+Package: RJDBC
+Source: CRAN
+Version: 0.2-8
+Hash: 4bb11ebf23b0087a17df7c8ec80f5bbb
+Requires: DBI, rJava
+
 Package: RMySQL
 Source: CRAN
 Version: 0.10.20
@@ -215,6 +221,12 @@ Source: CRAN
 Version: 0.14
 Hash: 18306cc3bc1aec7b7360eea8a0eb0ee1
 
+Package: excelR
+Source: CRAN
+Version: 0.4.0
+Hash: 9ff0928a97f7b5b01df847c642ad2482
+Requires: jsonlite, htmlwidgets
+
 Package: fansi
 Source: CRAN
 Version: 0.4.0
@@ -299,12 +311,17 @@ Package: httr
 Source: CRAN
 Version: 1.4.1
 Hash: cc16de93eaabd3c6d0785cb8e6d059ab
-Requires: R6, jsonlite, mime, curl, openssl
+Requires: R6, curl, jsonlite, mime, openssl
 
 Package: import
 Source: CRAN
 Version: 1.1.0
 Hash: e5560b2ba6fbb7fd752b12dfa5b60ee7
+
+Package: ini
+Source: CRAN
+Version: 0.3.1
+Hash: 9d6de5178c1cedabfb24e7d2acc9a092
 
 Package: jsonlite
 Source: CRAN
@@ -343,6 +360,12 @@ Source: CRAN
 Version: 0.1.0
 Hash: fd2ceffa778c010fab2df12b2eccd835
 Requires: glue, rlang
+
+Package: lubridate
+Source: CRAN
+Version: 1.7.4
+Hash: 74ce398682545c624d819a6b5c4c461b
+Requires: Rcpp, stringr
 
 Package: magrittr
 Source: CRAN
@@ -390,6 +413,12 @@ Version: 1.0.1
 Hash: 07578e7711863f75ea445cd1d6656970
 Requires: tibble
 
+Package: odbc
+Source: CRAN
+Version: 1.2.2
+Hash: b6230803f2788d39ecff5bf1fa0236cf
+Requires: BH, DBI, Rcpp, rlang, bit64, hms, blob
+
 Package: openssl
 Source: CRAN
 Version: 1.4.1
@@ -407,6 +436,87 @@ Version: 1.2.0
 Hash: 289aca3d85861a48b5a91aa2c49fbe50
 Requires: rematch2
 
+Package: paws
+Source: CRAN
+Version: 0.1.8
+Hash: 0302fc2eb4bc31974083e796e24a4de9
+Requires: paws.analytics, paws.application.integration, paws.compute,
+    paws.cost.management, paws.customer.engagement, paws.database,
+    paws.machine.learning, paws.management, paws.networking,
+    paws.security.identity, paws.storage
+
+Package: paws.analytics
+Source: CRAN
+Version: 0.1.8
+Hash: dd119bde2debb7e1d06556372ee7b13c
+Requires: paws.common
+
+Package: paws.application.integration
+Source: CRAN
+Version: 0.1.8
+Hash: 6ef80996cee651fe0c98df9ffeaa9d95
+Requires: paws.common
+
+Package: paws.common
+Source: CRAN
+Version: 0.3.1
+Hash: 6153d84cb28e569fb1dc6145defd4b51
+Requires: base64enc, digest, jsonlite, httr, ini, xml2
+
+Package: paws.compute
+Source: CRAN
+Version: 0.1.8
+Hash: 31a9e18bb2c7616f83b4d17b6f31e44d
+Requires: paws.common
+
+Package: paws.cost.management
+Source: CRAN
+Version: 0.1.8
+Hash: 132ab26a67989669d4117c78ec2b0fc5
+Requires: paws.common
+
+Package: paws.customer.engagement
+Source: CRAN
+Version: 0.1.8
+Hash: 9e4ee7b67c792cf03d7d0c375dd5747b
+Requires: paws.common
+
+Package: paws.database
+Source: CRAN
+Version: 0.1.8
+Hash: 0d7d097cbf8636515b65d64213e3f532
+Requires: paws.common
+
+Package: paws.machine.learning
+Source: CRAN
+Version: 0.1.8
+Hash: 881ba81de5eca11f6297508cbc459dc2
+Requires: paws.common
+
+Package: paws.management
+Source: CRAN
+Version: 0.1.8
+Hash: c216b42513c28ae1880fc0829c0a14ab
+Requires: paws.common
+
+Package: paws.networking
+Source: CRAN
+Version: 0.1.8
+Hash: 78b10728f17425981e15070eacaa184c
+Requires: paws.common
+
+Package: paws.security.identity
+Source: CRAN
+Version: 0.1.8
+Hash: e2fed3ffab27fe5b3f92f646091ce9d4
+Requires: paws.common
+
+Package: paws.storage
+Source: CRAN
+Version: 0.1.8
+Hash: 2628be6eb2fed43a2a35ff507f131082
+Requires: paws.common
+
 Package: pillar
 Source: CRAN
 Version: 1.4.3
@@ -423,7 +533,7 @@ Package: pkgbuild
 Source: CRAN
 Version: 1.0.6
 Hash: f41de345bf0dda984cce64a7ea668ea4
-Requires: R6, crayon, withr, cli, callr, desc, prettyunits, rprojroot
+Requires: R6, crayon, withr, rprojroot, cli, prettyunits, desc, callr
 
 Package: pkgconfig
 Source: CRAN
@@ -434,7 +544,7 @@ Package: pkgload
 Source: CRAN
 Version: 1.0.2
 Hash: 41eb2db35be61f6f9e8864cf87a1ecb0
-Requires: rlang, withr, desc, pkgbuild, rprojroot, rstudioapi
+Requires: rlang, rstudioapi, withr, rprojroot, desc, pkgbuild
 
 Package: plogr
 Source: CRAN
@@ -485,6 +595,11 @@ Source: CRAN
 Version: 0.3.3
 Hash: d4f497f8a97ef6c7182a87b2476748d1
 Requires: magrittr, rlang
+
+Package: rJava
+Source: CRAN
+Version: 0.9-11
+Hash: 1d41abb8e4537cb281dd913f0d6f1e76
 
 Package: readr
 Source: CRAN
@@ -574,9 +689,9 @@ Package: shinytest
 Source: CRAN
 Version: 1.3.1
 Hash: cc8a251b4a57d62f2d2367a2de90ef3b
-Requires: R6, assertthat, crayon, digest, jsonlite, withr, htmlwidgets,
-    httpuv, shiny, callr, debugme, httr, parsedate, pingr, rematch,
-    rstudioapi, testthat, webdriver
+Requires: R6, assertthat, crayon, digest, jsonlite, rematch,
+    rstudioapi, withr, debugme, callr, pingr, htmlwidgets, httpuv,
+    httr, shiny, webdriver, testthat, parsedate
 
 Package: showimage
 Source: CRAN
@@ -588,6 +703,12 @@ Package: sourcetools
 Source: CRAN
 Version: 0.1.7
 Hash: d093478ac90064e670cd4bf1a99b47b6
+
+Package: sparkline
+Source: CRAN
+Version: 2.0
+Hash: 180ff3414d20b647d826a5af8466f483
+Requires: htmltools, htmlwidgets
 
 Package: stringi
 Source: CRAN
@@ -609,8 +730,8 @@ Package: testthat
 Source: CRAN
 Version: 2.3.1
 Hash: 08a7645752835e2708c9bdf681409532
-Requires: R6, crayon, digest, evaluate, magrittr, rlang, withr, cli,
-    ellipsis, pkgload, praise
+Requires: R6, crayon, digest, evaluate, magrittr, praise, rlang, withr,
+    cli, ellipsis, pkgload
 
 Package: tibble
 Source: CRAN
@@ -668,8 +789,8 @@ Package: webdriver
 Source: CRAN
 Version: 1.0.5
 Hash: 886b77eebfb8ba4fbfa31935fb8fd19b
-Requires: R6, base64enc, jsonlite, withr, callr, curl, debugme, httr,
-    showimage
+Requires: R6, base64enc, curl, jsonlite, withr, debugme, showimage,
+    callr, httr
 
 Package: withr
 Source: CRAN
@@ -680,6 +801,12 @@ Package: xfun
 Source: CRAN
 Version: 0.7
 Hash: f615e6607b290cfbc05bbda2a9e201b7
+
+Package: xml2
+Source: CRAN
+Version: 1.2.2
+Hash: c5ae4169830ed140e94045e1b7934267
+Requires: Rcpp
 
 Package: xtable
 Source: CRAN

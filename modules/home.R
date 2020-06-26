@@ -2,14 +2,14 @@ homeUI <- function(id){
   ns = NS(id)
   tagList(
     div(class ="container-fluid",
-        style = 'padding:0;',
-        div(class = "jumbotron", style = "color:white;width:100%;",
-            h1(class = "display-3","Shiny Me Yes"),
-            p("This is a simple hero unit, a simple jumbotron-style component"),
-            hr(),
-            p("It uses utility classes for typography and spacing to make things look cool."),
-            a(class="btn btn-primary btn-lg" ,href="#" ,role="button","Learn More")
-        )
+        style = 'padding:0;'#,
+        # div(class = "jumbotron", style = "color:white;width:100%;",
+        #     h1(class = "display-3","Shiny Me Yes"),
+        #     p("This is a simple hero unit, a simple jumbotron-style component"),
+        #     hr(),
+        #     p("It uses utility classes for typography and spacing to make things look cool."),
+        #     a(class="btn btn-primary btn-lg" ,href="#" ,role="button","Learn More")
+        # )
     ),
     div(class ="container-fluid", style = 
     'padding:75px;width:90%;max-width:1400px;background-color:#fff;',

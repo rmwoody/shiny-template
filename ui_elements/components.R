@@ -1,26 +1,28 @@
-
+library(glue)
+library(shiny)
 customNav <- function(...){
   items <- list(...)
   html <- div(class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark",
-              div(class = "container", style = 'align-items: center;',
+              div(class = "container-fluid", style = 'align-items: center;',
                   # tags$link(rel="icon", href="img/favicon_io/favicon-32x32.png"), 
                   tags$div(class = "navbar-brand",
                            href="javascript:setPage('home');", 
                            "ShinyMeNot"),
-                  tags$button(class = "navbar-toggler",type="button",
-                              `data-taggle`="collapse",
-                              `data-target`= "#navbarResponsive",
-                              `aria-controls`="navbarResponsive",
-                              `aria-expanded`="false",
-                              `aria-label`="Toggle navigation",
-                              tags$span(class="navbar-toggler-icon")
-                  ),
+                  # tags$button(class = "navbar-toggler",type="button",
+                  #             `data-taggle`="collapse",
+                  #             `data-target`= "#navbarResponsive",
+                  #             `aria-controls`="navbarResponsive",
+                  #             `aria-expanded`="false",
+                  #             `aria-label`="Toggle navigation",
+                  #             tags$span(class="navbar-toggler-icon")
+                  # ),
                   div(id="navbarResponsive",class= "collapse navbar-collapse",
                       tags$ul(class="navbar-nav",
                               mapply(function(x){
                                 return(uiOutput(x))
                               },x = items, SIMPLIFY = FALSE, USE.NAMES = FALSE
-                              )
+                              ),
+                              uiOutput("normal")
                       )     # Nothing is rendered on startup.
                   )
               )
@@ -31,9 +33,9 @@ customNav <- function(...){
 moduleDropdownLink <- function(label,moduleName,divider = FALSE){
   if (divider){
     divider <- tags$div(class = "dropdown-divider")
-  } else{divider <- NULL}
+  } else{divider <- ""}
   return(tags$a(class = 'dropdown-item',
-                href = glue("javascript:setPage('{moduleName}');") %>% as.character(),
+                href = paste0("javascript:setPage('",moduleName,"');"),
                 label,
                 divider)
   )
@@ -43,17 +45,17 @@ navDropdown <- function(id = NULL, label = "",...){
   items = list(...)
   tags$li(class="nav-item dropdown", id = id,
           tags$a(class="nav-link dropdown-toggle",`data-toggle`="dropdown",href="#",label),
-          div(class = 'dropdown-menu',`aria-labelledby` = "themes",
-              items
-          )
+          div(class = 'dropdown-menu',`aria-labelledby` = "themes", items)
   )
 }
+navDropdown("dfj","dfa",moduleDropdownLink("Datatables","admin_dataPreview"))
+moduleDropdownLink(label = "Datatables",module = "admin_dataPreview")
 
 moduleNav <- function(id = NULL,label = NULL, moduleName=NULL,...){
   items <- list(...)
   tags$li(class="nav-item",
           tags$a(class="nav-link",
-                 href = glue("javascript:setPage('{moduleName}');") %>% as.character(),
+                 href = paste0("javascript:setPage('",moduleName,"');"),
                  label,
                  items)
   )

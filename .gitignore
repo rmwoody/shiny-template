@@ -7,3 +7,4 @@ secret.pem
 data/*
 Rproj.user
 .Rproj.user
+.Renviron
