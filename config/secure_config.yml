@@ -1,15 +1,5 @@
 # This file stores the secure values for the app
 # Includes things like private usernames, and passwords
-# Nothing SECRET/Private should be in clear text in this file
-# For this iteration, the way security works is that the secure
-# encrypted values are stored in the key file as standalone files.
-# There is a .gitignore file that prevents these from being pushed, however,
-# it would theoretically not be too big a deal, since they would be encrypted at rest.
-# An AppConfig R6 class takes in the config and secure config and then performs
-# the decrypt internally, using the key specified here in this file.
-# These decrypted values are saved to private fields in the AppConfig, which should 
-# include methods for establishing any database connections ect.
-# This ensures the decrypted values can never actually be printed out.
 default:
   private_key: "~/private_key.pem"
   sqlite_username : "keys/sqlite_username.pem"

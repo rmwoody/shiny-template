@@ -2,9 +2,6 @@ reports_caseStudiesUI <- function(id){
   ns = NS(id)
   tagList(
     div(class ="container-fluid", style = 'padding:25px;max-width:900px;',
-        h1("Case Studies"),
-        p("This is a collection of case studies that explore a particular topic
-            in great detail."),
         hr(),
         br(),
         br(),

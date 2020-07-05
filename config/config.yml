@@ -7,7 +7,6 @@ default:
   app_name : "ShinyMeNot"
   app_version: "1.0.0"
   sql_lite_con: "data/app_db.sqlite"
-  admin_role: "admin123"
-  free_role: "free"
-  role_1: "role1"
+  admin_role: "AdminST"
+  user_role: "UserST"
   

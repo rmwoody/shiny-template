@@ -2,46 +2,31 @@ admin_dataPreviewUI <- function(id){
   ns = NS(id)
   tagList(br(),
           div(class ="container-fluid", style = 'padding:35px;align-content:center;',
-                div(class = "card" ,style = "padding:37px;",
-                            h3("S3 Buckets"),
-                            uiOutput(ns("s3_buckets")),height = 300),
-              dashboardCard(id = ns("value1"),
-                            sparklineOutput(ns("value1spark"))),
-              excelOutput(ns("exltable"),width = "100%"),
-              column(8, dashboardCard(id = NULL,
+              div(class = "card" ,style = "padding:37px;",
+                  h3("S3 Buckets"),
+                  hr(),
+                  uiOutput(ns("s3_buckets")),height = 300),
+              column(12, dashboardCard(id = NULL,
                                       h5("Tables"),
-                                         DT::dataTableOutput(ns("tables"))
-                                      )
+                                      DT::dataTableOutput(ns("tables"))
+              )
               
               ),
-              column(8, 
+              column(12, 
                      dashboardCard(id = NULL,
                                    h5("User Roles"),DT::dataTableOutput(ns("users"))
                                    
                      )
               ),
-              HTML('<div class="card">
-<div class="card-body">
-<div class="stat-widget-four">
-<div class="stat-icon dib">
-<i class="ti-server text-muted"></i>
-</div>
-<div class="stat-content">
-<div class="text-left dib">
-<div class="stat-heading">Database</div>
-<div class="stat-text">Total: 765</div>
-</div>
-</div>
-</div>
-</div>
-</div>')
+              excelOutput(ns("exltable"),width = "100%"),
           )
   )
+  
+  
   
 }
 
 admin_dataPreview <- function(input, output, session){
-  
   
   ns = session$ns
   con <- session$userData[['con']]
@@ -80,3 +65,5 @@ admin_dataPreview <- function(input, output, session){
   output$exltable <-renderExcel(excelTable(data = head(iris)))
   
 }
+
+

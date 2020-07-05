@@ -1,123 +1,71 @@
 #######################################################
-"app.R is the user specific code that runs to create 
+"app.R is the user specific code that runs to create
 each session. User Roles are set and specific modules
 are called"
 #######################################################
 source("global.R")
 ui <- fluidPage(theme = "css/custom-bootstrap3.css",
-  tags$head(#navbarPage("djfa",
-    #                      #theme = "css/pulse.css",
-    #                      header = tags$img(src = "https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Stories%20Images/2018/11/door%20dash/2web.jpg?h=960&w=1440&la=en"),
-    #                      navbarMenu("More",
-    #                                 tabPanel("Summary"),
-    #                                 "----",
-    #                                 "Section header",
-    #                                 tabPanel("Table")
-    #                      ),
-    # Custom CSS and JavaScript
-    tags$script(src = "js/custom.js"),  
-    #tags$link(rel = "stylesheet", type = "text/css", href = "css/custom-bootstrap.css"),
-    tags$link(rel = "stylesheet", type = "text/css", href = "css/customyeti.css"),
-    tags$link(rel="stylesheet",type = "text/css",
-              href="highlight/styles/atom-one-dark.css"),
-    tags$script(src="highlight/highlight.pack.js"),
-    tags$script("hljs.initHighlightingOnLoad();")
-  ),
-  
-  #Shiny.setInputValue(id, value);
-  #https://shiny.rstudio.com/articles/communicating-with-js.html
-  # The Possible Navigation Menus To Exist
-  use_waiter(),
-  tags$body(
-    HTML('<nav  class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="javascript:setPage(\'landing\')">ShinyMeNot</a>
-  <button class="navbar-toggler" 
-  type="button" data-toggle="collapse" 
-  data-target="#navbarsExampleDefault" 
-  aria-controls="navbarsExampleDefault" 
-  aria-expanded="true" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="navbar-collapse collapse show" id="navbarsExampleDefault" style="">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="javascript:setPage(\'landing\')";>Home <span class="sr-only">(current)</span></a>
-      </li>
-      
-      <li class="nav-item">
-        <a class="nav-link" href="javascript:setPage(\'home\')">About</a>
-      </li>
-      
-    
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reporting</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="javascript:setPage(\'reports_echarts\');">Echarts action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      
-    </ul>
-  </div>
-</nav>'),
-#   
-#   HTML('<nav class="navbar navbar-default navbar-static-top" role="navigation">
-#   <div class="container-fluid">
-#     <div class="navbar-header">
-#       <span class="navbar-brand">App Title</span>
-#     </div>
-#     <ul class="nav navbar-nav" data-tabsetid="8166">
-#       <li class="active">
-#         <a href="javascript:setPage(\'admin_dataPreview\');" >Admin Data</a>
-#       </li>
-#       <li>
-#         <a href="#tab-8166-2" data-toggle="tab" data-value="Summary">Summary</a>
-#       </li>
-#       <li>
-#         <a href="#tab-8166-3" data-toggle="tab" data-value="Table">Table</a>
-#       </li>
-#     </ul>
-#   </div>
-# </nav>
-# <div class="container-fluid">
-#   <div class="tab-content" data-tabsetid="8166">
-#     <div class="tab-pane active" data-value="Plot" id="tab-8166-1"></div>
-#     <div class="tab-pane" data-value="Summary" id="tab-8166-2"></div>
-#     <div class="tab-pane" data-value="Table" id="tab-8166-3"></div>
-#   </div>
-# </div>
-# </div>'
-# ),
-    # customNav("home",
-    #           "reports",
-    #           "analytics",
-    #           "admin",
-    #           "profile"
-    # ),
-    
-    shinyjs::useShinyjs(debug = FALSE),
-    # This determines what page is being used
-    hidden(selectInput("pageID", label = "",choices = c(), selected = "")),
-    # For Any Modules that simply display a markdown file.
-    hidden(selectInput("moduleFile", label = "",choices = c(), selected = NULL)),
-    # Main Output That Is Then Switched Between
-    # Maybe something to change the style of this for some modules
-    withSpinner(div(id = "mainOutput", class = "shiny-html-output",
-        style = 'margin-top:60px;background-color:#ccc;'),type = 8,color = "darkblue"
-    ),
-tags$div(
-HTML('<footer class="footer dark mt-auto py-3">
+                e_theme_register('{"color":["#440154FF,481B6DFF" ,"#46337EFF" ,"#3F4889FF",
+                "#365C8DFF", "#2E6E8EFF", "#277F8EFF","#21908CFF" ,"#1FA187FF", "#2DB27DFF",
+                "#4AC16DFF", "#71CF57FF", "#9FDA3AFF","#CFE11CFF",
+"#FDE725FF"]}', name = "myTheme"),
+                tags$head(#navbarPage("djfa",
+                  #                      #theme = "css/pulse.css",
+                  #                      header = tags$img(src = "https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Stories%20Images/2018/11/door%20dash/2web.jpg?h=960&w=1440&la=en"),
+                  #                      navbarMenu("More",
+                  #                                 tabPanel("Summary"),
+                  #                                 "----",
+                  #                                 "Section header",
+                  #                                 tabPanel("Table")
+                  #                      ),
+                  # Custom CSS and JavaScript
+                  tags$script(src = "js/custom.js"),
+                  #tags$link(rel = "stylesheet", type = "text/css", href = "css/custom-bootstrap.css"),
+                  tags$link(rel = "stylesheet", type = "text/css", href = "css/customyeti.css"),
+                  tags$link(rel="stylesheet",type = "text/css",
+                            href="highlight/styles/atom-one-dark.css"),
+                  tags$script(src="highlight/highlight.pack.js"),
+                  tags$script("hljs.initHighlightingOnLoad();")
+                ),
+                
+                #Shiny.setInputValue(id, value);
+                #https://shiny.rstudio.com/articles/communicating-with-js.html
+                # The Possible Navigation Menus To Exist
+                use_waiter(),
+                tags$body(
+                  custNavBar(custBrand(label = "ShinyMeNot",module_name = 'landing'),
+                             uiOutput("home"),
+                             uiOutput("landing"),
+                             uiOutput("reports"),
+                             uiOutput("case_studies"),
+                             uiOutput('admin'),
+                             logoutButton()
+                             #custNav(id = "user_info")
+                  ),
+                  
+                  shinyjs::useShinyjs(debug = FALSE),
+                  # This determines what page is being used
+                  hidden(selectInput("pageID", label = "",choices = c(), selected = "")),
+                  # For Any Modules that simply display a markdown file.
+                  hidden(selectInput("moduleFile", label = "",choices = c(), selected = NULL)),
+                  # Main Output That Is Then Switched Between
+                  # Maybe something to change the style of this for some modules
+                  withSpinner(div(id = "mainOutput", class = "shiny-html-output",
+                                  style = 'margin-top:60px;background-color:#ccc;'),type = 8,color = "darkblue"
+                  ),
+                  tags$div(
+                    HTML('<footer class="footer dark mt-auto py-3">
   <div class="container">
     <span class="text-muted">Place sticky footer content here.</span>
   </div>
 </footer>')
-)
-    
-  ),
-  # Loading Page
-  waiter_show_on_load(html = spin_fading_circles())
+                  )
+                ),
+                # Loading Page
+                #waiter_show_on_load(html = spin_fading_circles())
 )
 
+#ui <- secure_app(ui,enable_admin = TRUE)
 # Define server logic required to draw a histogram
 server <- function(input, output,session) {
   
@@ -130,7 +78,7 @@ server <- function(input, output,session) {
     }
     else if (!dbIsValid(con)){
       con <- AppConfig$make_con(RSQLite::SQLite(),cfg$sql_lite_con, NULL, NULL)
-    } 
+    }
     return(con)
   }
   con <- refresh_con()
@@ -139,45 +87,51 @@ server <- function(input, output,session) {
   # Home Page
   output$home <- renderUI({
     #<span class="fa fa-home"></span>
-    moduleNav(id = "navDropdown1",label = "",moduleName = "home",
-              icon("home"))
+    custNav(id = "home",module_name = 'home')
   })
-  rt_home <- callModule(home,id="home")
-  # After home is loaded hide the waiter
-  waiter_hide()
   
+  rt_logins <- callModule(login,id = "login")
+  rt_home <- callModule(home,id="home")
+  
+  waiter_hide()
+  user_roles <- TRUE
+  admin_tab <- TRUE
+  report_tab <- TRUE
+  case_tab <- TRUE
+  home_tab <- TRUE
+  landing_tab <- TRUE
   # Module Access - Only shows if user has permission
-  if (AppUser$view_role() %in% c("admin","free","user")){
+  if (report_tab){
     output$reports <- renderUI({
-      navDropdown(id = "navDropdown2",label = "Reports",
-                  moduleDropdownLink("Case Studies","reports_caseStudies"),
-                  moduleDropdownLink("Dashboard","reports_echarts")
-      )
+      navDropdown(id = "navDropdown3","Reports",
+                    moduleDropdownLink(label = "Echarts",moduleName = "reports_echarts"))
     })
-    rt_caseStudies <- callModule(reports_caseStudies,id = "reports_caseStudies")
     rt_echarts <- callModule(reports_echarts,id = "reports_echarts")
   }
   
-  #Admin For Everyone for now
-  if (AppUser$view_role() %in% c("admin","free","user")) {
-    output$admin <- renderUI({
-      navDropdown(id = "navDropdownAdmin",label = "Admin",
-                  moduleDropdownLink("Datatables","admin_dataPreview")
-      )
+  
+  if(case_tab){
+    output$case_studies <- renderUI({
+      custNav(id = "navDropdown1",label = "Case Studies",module_name = "reports_caseStudies")
     })
-    rt_dataPreview <- callModule(admin_dataPreview, id = "admin_dataPreview")
+    rt_caseStudies <- callModule(reports_caseStudies,id = "reports_caseStudies")
   }
   
-  # output$normal <- renderUI({
-  #   navbarMenu("More",
-  #              tabPanel("Summary"),
-  #              "----",
-  #              "Section header",
-  #              tabPanel("Table")
-  #              
-  #              
-  #   )
-  # })
+  if(home_tab){
+    output$home <- renderUI({
+      custNav(id = "navDropdown0",label = "About",module_name = "home")
+    })
+  }
+  
+  if (admin_tab) {
+    output$admin <- renderUI({
+      navDropdown(id = "navDropdownAdmin",label = "Admin",
+                  moduleDropdownLink("Data Sources","admin_dataPreview"),
+                  moduleDropdownLink("User Info","admin_userInfo"))
+    })
+    rt_dataPreview <- callModule(admin_dataPreview, id = "admin_dataPreview")
+    rt_userInfro <- callModule(admin_userInfo,id = "admin_userInfo")
+  }
   
   page <- reactive({ input$pageID })
   parm1 <- reactive({ input$app_parm1 })
@@ -187,7 +141,7 @@ server <- function(input, output,session) {
   })
   
   # Shiny Book Marking
-  # Use Shiny To Book Mark the page 
+  # Use Shiny To Book Mark the page
   # As opposed to javascript.
   # Where do user params get stored if bookmarked
   
@@ -211,21 +165,8 @@ server <- function(input, output,session) {
     cat("Session stopped\n")
   })
 }
-#odbc::odbcListDrivers()
-#mongodb+srv://shiny-template:<password>@rshiny-zstp9.mongodb.net/<dbname>?retryWrites=true&w=majority
-# con <- DBI::dbConnect(
-#   odbc::odbc(),
-#   Driver        = "MongoDB ANSI ODBC",
-#   Server        = "mongodb+srv://shiny-template",
-#   Port          = 27015,
-#   Database      = "sample_airbnb",
-#   AuthMechanism = "SCRAM-SHA-1", # <- Example, depends server's auth setup
-#   UID           = "shiny-template",
-#   PWD           = 
-#     #rstudioapi::askForPassword("Database password")
-# )
-#mongodb+srv://shiny-template:<password>@rshiny-zstp9.mongodb.net
-#Run the application 
-shinyApp(ui = ui, server = server)
-
-
+if (active_config == "shinyapps"){
+  auth0::shinyAppAuth0(ui = ui, server = server)
+}else{
+  shinyApp(ui = ui, server = server)
+}

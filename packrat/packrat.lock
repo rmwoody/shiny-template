@@ -41,12 +41,6 @@ Source: CRAN
 Version: 1.1-2
 Hash: c0d56cd15034f395874c870141870c25
 
-Package: RJDBC
-Source: CRAN
-Version: 0.2-8
-Hash: 4bb11ebf23b0087a17df7c8ec80f5bbb
-Requires: DBI, rJava
-
 Package: RMySQL
 Source: CRAN
 Version: 0.10.20
@@ -242,6 +236,11 @@ Source: CRAN
 Version: 1.0.1
 Hash: d272cd728e4095b3964181b44763f46c
 
+Package: filelock
+Source: CRAN
+Version: 1.0.2
+Hash: 97adcbe3b816f81113e84168d06746d8
+
 Package: gWidgets
 Source: CRAN
 Version: 0.0-54.1
@@ -361,12 +360,6 @@ Version: 0.1.0
 Hash: fd2ceffa778c010fab2df12b2eccd835
 Requires: glue, rlang
 
-Package: lubridate
-Source: CRAN
-Version: 1.7.4
-Hash: 74ce398682545c624d819a6b5c4c461b
-Requires: Rcpp, stringr
-
 Package: magrittr
 Source: CRAN
 Version: 1.5
@@ -461,7 +454,7 @@ Package: paws.common
 Source: CRAN
 Version: 0.3.1
 Hash: 6153d84cb28e569fb1dc6145defd4b51
-Requires: base64enc, digest, jsonlite, httr, ini, xml2
+Requires: base64enc, digest, ini, jsonlite, xml2, httr
 
 Package: paws.compute
 Source: CRAN
@@ -528,6 +521,13 @@ Source: CRAN
 Version: 2.0.0
 Hash: 4319194b72ee7820c54fbd284923f869
 Requires: processx
+
+Package: pins
+Source: CRAN
+Version: 0.4.1
+Hash: 01e6de53fa5b656bca1dbae974cc87c9
+Requires: backports, base64enc, crayon, digest, jsonlite, magrittr,
+    mime, withr, yaml, openssl, httr, filelock, rappdirs, zip
 
 Package: pkgbuild
 Source: CRAN
@@ -596,10 +596,10 @@ Version: 0.3.3
 Hash: d4f497f8a97ef6c7182a87b2476748d1
 Requires: magrittr, rlang
 
-Package: rJava
+Package: rappdirs
 Source: CRAN
-Version: 0.9-11
-Hash: 1d41abb8e4537cb281dd913f0d6f1e76
+Version: 0.3.1
+Hash: 7340cfebc77ad7b107a549a8635e64dd
 
 Package: readr
 Source: CRAN
@@ -666,6 +666,12 @@ Source: CRAN
 Version: 0.4.9
 Hash: b317a5a7da642e6962a6382eab79d803
 Requires: jsonlite, htmltools, scales, shiny
+
+Package: shinycssloaders
+Source: CRAN
+Version: 0.2.0
+Hash: a6b8033e66d69998a2b54059e6d53476
+Requires: digest, glue, shiny
 
 Package: shinydashboard
 Source: CRAN
@@ -822,3 +828,8 @@ Package: zeallot
 Source: CRAN
 Version: 0.1.0
 Hash: 10b2ed48e202b4db421ae864041dc4b2
+
+Package: zip
+Source: CRAN
+Version: 2.0.4
+Hash: f86b0ae5776b2e3880871fb0e34e5e48
