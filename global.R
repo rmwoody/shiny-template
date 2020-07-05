@@ -78,7 +78,7 @@ Connections should always be disconnected on session end."
 if (Sys.getenv("R_CONFIG_ACTIVE") == "shinyapps"){# This needs to be made correct
   active_config = 'shinyapps'
 }else{active_config = 'default' }
-#Sys.getenv("R_CONFIG_ACTIVE") == "RSCONNECT"
+
 cfg <- config::get(file = "config/config.yml",config = active_config )
 secure_config <- config::get(file = "config/secure_config.yml",config = active_config)
 dynamo<- paws::dynamodb()
@@ -102,14 +102,14 @@ con <- AppConfig$make_con(RSQLite::SQLite(),cfg$sql_lite_con, NULL, NULL)
 initial_user <- data.frame(USERNAME = c('adminAccount'), ROLE = c('admin'))
 try({dbWriteTable(con,"USER_ROLES",initial_user)},silent = TRUE)
 # For demo, this should be a SQL script usually
-user <- Sys.getenv('USER')
-sql <- sqlInterpolate(con,"
-INSERT INTO USER_ROLES (USERNAME, ROLE)
-SELECT * FROM (SELECT ?user, 'admin') AS tmp
-WHERE NOT EXISTS (
-    SELECT USERNAME FROM USER_ROLES WHERE USERNAME = 'robertwoody'
-) LIMIT 1; ",user = user)
-dbExecute(con,sql)
+
+# sql <- sqlInterpolate(con,"
+# INSERT INTO USER_ROLES (USERNAME, ROLE)
+# SELECT * FROM (SELECT ?user, 'admin') AS tmp
+# WHERE NOT EXISTS (
+#     SELECT USERNAME FROM USER_ROLES WHERE USERNAME = 'robertwoody'
+# ) LIMIT 1; ",user = user)
+# dbExecute(con,sql)
 
 DBprep <- DatabasePrep$new(version = cfg$app_version)
 DBprep$prepare_table(con,"sql/logins.sql","HOME_PAGE") # for logging home page inputs

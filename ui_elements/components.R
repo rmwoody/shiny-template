@@ -33,21 +33,23 @@ customNav <- function(...){
 customNavDown <- function(id= NULL, dropdownName, ...){
   items = list(...)
   tagList(
-                  tags$li(class="nav-item dropdown",
-                          tags$a(class="nav-link dropdown-toggle", id = id,
-                                 `data-toggle`="dropdown",
-                                 href="#",
-                                 dropdownName),
-                          div(class = 'dropdown-menu',`aria-labelledby` = "themes",
-                              # tags$a(class = 'dropdown-item',href = "#",
-                              #        "Monthly"),
-                              # tags$div(class = "dropdown-divider"),
-                              # tags$a(class="dropdown-item", href="#">"Cerulean")
-                          )
-                          
-                  )
-  
+    tags$li(class="nav-item dropdown",
+            tags$a(class="nav-link dropdown-toggle", id = id,
+                   `data-toggle`="dropdown",
+                   href="#",
+                   dropdownName),
+            div(class = 'dropdown-menu',`aria-labelledby` = "themes",
+                items
+                # tags$a(class = 'dropdown-item',href = "#",
+                #        "Monthly"),
+                # tags$div(class = "dropdown-divider"),
+                # tags$a(class="dropdown-item", href="#">"Cerulean")
+            )
+    )
+    
   )
+  
+  
 }
 
 moduleDropdownLink <- function(label,moduleName,divider = FALSE){
@@ -64,8 +66,8 @@ moduleDropdownLink <- function(label,moduleName,divider = FALSE){
 custBrand <- function(module_name,label = NULL,...){
   tags$a(class="navbar-brand",
          href = paste0("javascript:setPage('",module_name,"');"),
-                       label,
-                       list(...))
+         label,
+         list(...))
 } 
 
 
@@ -82,36 +84,36 @@ custNav <- function(id = NULL,label = NULL, module_name=NULL,...){
 
 
 custNavBar <- function(brand,...){
-items <- list(...)
-tags$div(class="navbar navbar-expand-md navbar-dark bg-dark fixed-top",
-         brand,
-         tags$button(class="navbar-toggler",type="button", `data-toggle`="collapse" ,
-                     `data-target`="#navbarsExampleDefault" ,
-                     `aria-controls`="navbarsExampleDefault" ,
-                     `aria-expanded`="true", `aria-label`="Toggle navigation",
-                     tags$span(class="navbar-toggler-icon")
-                     ),
-         tags$div(class="navbar-collapse collapse show", id="navbarsExampleDefault" ,style="",
-           tags$ul(class="navbar-nav mr-auto",
-           items
+  items <- list(...)
+  tags$div(class="navbar navbar-expand-md navbar-dark bg-dark fixed-top",
+           brand,
+           tags$button(class="navbar-toggler",type="button", `data-toggle`="collapse" ,
+                       `data-target`="#navbarsExampleDefault" ,
+                       `aria-controls`="navbarsExampleDefault" ,
+                       `aria-expanded`="true", `aria-label`="Toggle navigation",
+                       tags$span(class="navbar-toggler-icon")
+           ),
+           tags$div(class="navbar-collapse collapse show", id="navbarsExampleDefault" ,style="",
+                    tags$ul(class="navbar-nav mr-auto",
+                            items
+                    )
            )
-         )
-
-)
+           
+  )
 }
 custDropItem <- function(id = NULL,label=NULL,module_name = NULL){
   tags$a(class="dropdown-item",
-  href = paste0("javascript:setPage('",module_name,"');"),
-  label
+         href = paste0("javascript:setPage('",module_name,"');"),
+         label
   )
 }
 
 #<li class="nav-item dropdown">
-   #       <a class="nav-link dropdown-toggle" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
-  #         <div class="dropdown-menu" aria-labelledby="dropdown05">
-  #           <a class="dropdown-item" href="javascript:setPage(\'admin_dataPreview\');">Echarts action</a>
-  #         </div>
-  #       </li>
+#       <a class="nav-link dropdown-toggle" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
+#         <div class="dropdown-menu" aria-labelledby="dropdown05">
+#           <a class="dropdown-item" href="javascript:setPage(\'admin_dataPreview\');">Echarts action</a>
+#         </div>
+#       </li>
 # custDropdown <- function(id= NULL,label = NULL,...){
 #   tags$li(class="nav-item dropdown",
 #           tags$a(class="nav-link dropdown-toggle",
@@ -130,7 +132,7 @@ custDropItem <- function(id = NULL,label=NULL,module_name = NULL){
 custNavBar(custBrand(label = "ShinyMeNot",module_name = 'landing'),
            custNav(label = "Home",module_name = 'home'),
            custNav(id = "login_user",label = "login",module = "login")
-           )
+)
 
 
 # HTML('<nav  class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">

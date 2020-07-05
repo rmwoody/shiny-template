@@ -39,7 +39,7 @@ ui <- fluidPage(theme = "css/custom-bootstrap3.css",
                              uiOutput("reports"),
                              uiOutput("case_studies"),
                              uiOutput('admin'),
-                             logoutButton()
+                             tags$span(logoutButton(id="logout","Logout",style = "background-color:#9fd89f"))
                              #custNav(id = "user_info")
                   ),
                   
@@ -90,7 +90,7 @@ server <- function(input, output,session) {
     custNav(id = "home",module_name = 'home')
   })
   
-  rt_logins <- callModule(login,id = "login")
+  
   rt_home <- callModule(home,id="home")
   
   waiter_hide()
@@ -103,7 +103,7 @@ server <- function(input, output,session) {
   # Module Access - Only shows if user has permission
   if (report_tab){
     output$reports <- renderUI({
-      navDropdown(id = "navDropdown3","Reports",
+      customNavDown(id = "navDropdown3","Reports",
                     moduleDropdownLink(label = "Echarts",moduleName = "reports_echarts"))
     })
     rt_echarts <- callModule(reports_echarts,id = "reports_echarts")
@@ -122,12 +122,14 @@ server <- function(input, output,session) {
       custNav(id = "navDropdown0",label = "About",module_name = "home")
     })
   }
+  ##9fd89f
+  
   
   if (admin_tab) {
     output$admin <- renderUI({
-      navDropdown(id = "navDropdownAdmin",label = "Admin",
-                  moduleDropdownLink("Data Sources","admin_dataPreview"),
-                  moduleDropdownLink("User Info","admin_userInfo"))
+      customNavDown(id = "navDropdownAdmin","Admin",
+                    moduleDropdownLink("Data Sources","admin_dataPreview"),
+                    moduleDropdownLink("User Info","admin_userInfo"))
     })
     rt_dataPreview <- callModule(admin_dataPreview, id = "admin_dataPreview")
     rt_userInfro <- callModule(admin_userInfo,id = "admin_userInfo")
@@ -142,8 +144,6 @@ server <- function(input, output,session) {
   
   # Shiny Book Marking
   # Use Shiny To Book Mark the page
-  # As opposed to javascript.
-  # Where do user params get stored if bookmarked
   
   output$mainOutput <- renderUI({
     if (page() != '') {

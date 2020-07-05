@@ -2,19 +2,22 @@ admin_dataPreviewUI <- function(id){
   ns = NS(id)
   tagList(br(),
           div(class ="container-fluid", style = 'padding:35px;align-content:center;',
-              div(class = "card" ,style = "padding:37px;",
-                  h3("S3 Buckets"),
+             column(12, dashboardCard(id = NULL,
+                  h5("S3 Buckets"),
                   hr(),
-                  uiOutput(ns("s3_buckets")),height = 300),
+                  uiOutput(ns("s3_buckets")),height = 300)),
               column(12, dashboardCard(id = NULL,
                                       h5("Tables"),
+                                      hr(),
                                       DT::dataTableOutput(ns("tables"))
               )
               
               ),
               column(12, 
                      dashboardCard(id = NULL,
-                                   h5("User Roles"),DT::dataTableOutput(ns("users"))
+                                   h5("User Roles"),
+                                   hr(),
+                                   DT::dataTableOutput(ns("users"))
                                    
                      )
               ),

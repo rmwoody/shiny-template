@@ -15,6 +15,10 @@ h3 {
   margin: 10px;
 }
 
+h5 {
+ color: #457c7d;
+}
+
 /*
 .h1{
   font-size: 50px;
@@ -45,11 +49,6 @@ h3 {
   min-width: 250px;
   flex-grow:1;
   margin-bottom:12px;
-}
-
-.btn-secondary {
-    background: #0f283e;
-    color: white;
 }
 
 .border-secondary{
@@ -93,6 +92,7 @@ th {
   font-size:14px;
   
 }
+*/
 
 .navbar{
   height:60px;
@@ -109,9 +109,10 @@ th {
   }
   
 .navbar-brand {
-  font-size: 28px;
-}
+  font-size: 24px;
+} 
 
+/*
 body {
     padding-top: 60px;
     background-color:#ebebeb;
@@ -120,8 +121,8 @@ body {
 html {
   font-size: 14px;
 }
-*/
-/*
+
+
 .navbar{
   height:60px;
   margin-bottom:10px;
