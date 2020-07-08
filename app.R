@@ -165,8 +165,14 @@ server <- function(input, output,session) {
     cat("Session stopped\n")
   })
 }
+# Conditional logic to deploy to shinyapps.io 
+# remote url needs to be '' when local.
 if (active_config == "shinyapps"){
+  cat(active_config)
   auth0::shinyAppAuth0(ui = ui, server = server)
 }else{
-  shinyApp(ui = ui, server = server)
+  cat(active_config)
+  options(shiny.port = 8080)
+  auth0::shinyAppAuth0(ui = ui, server = server)
+  #shinyApp(ui = ui, server = server)
 }
